@@ -8,17 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --surface2: #1a1a25;
-      --accent: #f5a623;
-      --accent2: #e8791a;
+      --bg: #080C14;
+      --surface: #0D1521;
+      --surface2: #111D2E;
+      --accent: #25D366;
+      --accent2: #20BD5A;
       --accent3: #4fc3f7;
-      --text: #f0f0f5;
-      --text-muted: #8888a0;
-      --border: rgba(245,166,35,0.15);
-      --glow: rgba(245,166,35,0.25);
-      --green: #4ade80;
+      --text: #E8EAF0;
+      --text-muted: #8892A4;
+      --border: rgba(37,211,102,0.12);
+      --glow: rgba(37,211,102,0.2);
+      --green: #25D366;
       --red: #f87171;
     }
 
@@ -46,12 +46,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 60px 80px;
+      padding: clamp(32px, 6vw, 60px) clamp(24px, 8vw, 80px);
       opacity: 0;
       transform: translateX(100%);
       transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
       background: var(--bg);
+      overflow: hidden;
     }
 
     .slide.active {
@@ -67,7 +68,7 @@
 
     /* ─── Slide 1: Cover ─── */
     .slide-cover {
-      background: radial-gradient(ellipse at 30% 40%, #1a1500 0%, #0a0a0f 60%);
+      background: radial-gradient(ellipse at 30% 40%, #091508 0%, #080C14 60%);
       text-align: center;
     }
 
@@ -88,7 +89,7 @@
       font-weight: 900;
       line-height: 1;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff 0%, #f5a623 60%, #e8791a 100%);
+      background: linear-gradient(135deg, #fff 0%, #25D366 60%, #20BD5A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
@@ -141,7 +142,7 @@
 
     /* ─── Slide 2: Agenda ─── */
     .slide-agenda {
-      background: radial-gradient(ellipse at 70% 50%, #0d1117 0%, #0a0a0f 70%);
+      background: radial-gradient(ellipse at 70% 50%, #091208 0%, #080C14 70%);
     }
 
     .slide-number {
@@ -229,7 +230,7 @@
 
     /* ─── Slide 3: Pain Points ─── */
     .slide-pain {
-      background: radial-gradient(ellipse at 20% 60%, #120808 0%, #0a0a0f 60%);
+      background: radial-gradient(ellipse at 20% 60%, #080C0A 0%, #080C14 60%);
     }
 
     .two-col {
@@ -307,7 +308,7 @@
 
     /* ─── Slide 4: Role ─── */
     .slide-role {
-      background: radial-gradient(ellipse at 60% 40%, #0a1520 0%, #0a0a0f 65%);
+      background: radial-gradient(ellipse at 60% 40%, #080E14 0%, #080C14 65%);
     }
 
     .role-visual {
@@ -357,7 +358,7 @@
     }
 
     .role-box.ai {
-      background: linear-gradient(135deg, #2a1800, #1a1000);
+      background: linear-gradient(135deg, #091508, #061008);
       border: 2px solid var(--accent);
       color: var(--accent);
       font-size: 1.1rem;
@@ -394,7 +395,7 @@
 
     /* ─── Slide 5: Stats ─── */
     .slide-stats {
-      background: radial-gradient(ellipse at 50% 30%, #0f1a0a 0%, #0a0a0f 65%);
+      background: radial-gradient(ellipse at 50% 30%, #080E0A 0%, #080C14 65%);
     }
 
     .stats-grid {
@@ -427,7 +428,7 @@
     .stat-number {
       font-size: 3.2rem;
       font-weight: 900;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: linear-gradient(135deg, var(--accent), #1aB355);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1;
@@ -448,7 +449,7 @@
 
     /* ─── Slide 6: CS Scenarios ─── */
     .slide-cs {
-      background: radial-gradient(ellipse at 80% 20%, #0d1505 0%, #0a0a0f 65%);
+      background: radial-gradient(ellipse at 80% 20%, #080E08 0%, #080C14 65%);
     }
 
     .scenario-card {
@@ -536,7 +537,7 @@
 
     /* ─── Slide 7: Closing ─── */
     .slide-close {
-      background: radial-gradient(ellipse at 40% 40%, #1a1200 0%, #0a0a0f 65%);
+      background: radial-gradient(ellipse at 40% 40%, #091508 0%, #080C14 65%);
       text-align: center;
     }
 
@@ -642,7 +643,7 @@
       top: 0;
       left: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background: linear-gradient(90deg, var(--accent), #1aB355);
       transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
       z-index: 100;
     }
@@ -686,6 +687,157 @@
       background: rgba(74,222,128,0.1);
       border: 1px solid rgba(74,222,128,0.25);
       color: var(--green);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .slide {
+        padding: 32px 20px 100px;
+        justify-content: flex-start;
+        padding-top: 60px;
+      }
+
+      .slide-cover .brand {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .slide-title {
+        font-size: clamp(1.6rem, 6vw, 3rem);
+        margin-bottom: 32px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .agenda-list {
+        gap: 12px;
+      }
+
+      .agenda-item {
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      .agenda-item .num {
+        font-size: 1.1rem;
+        min-width: 28px;
+      }
+
+      .agenda-item .label {
+        font-size: 0.95rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 360px;
+      }
+
+      .stat-card {
+        padding: 24px 20px;
+      }
+
+      .stat-number {
+        font-size: 2.4rem;
+      }
+
+      .role-diagram {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .role-arrow {
+        transform: rotate(90deg);
+        padding: 8px 0;
+      }
+
+      .role-box {
+        padding: 20px 28px;
+        font-size: 0.9rem;
+      }
+
+      .scenario-card {
+        padding: 24px 20px;
+      }
+
+      .bubble {
+        font-size: 0.85rem;
+        max-width: 95%;
+      }
+
+      .insight-box {
+        padding: 24px;
+      }
+
+      .insight-box .big-quote {
+        font-size: 1.2rem;
+      }
+
+      .close-title {
+        font-size: clamp(1.8rem, 8vw, 3.5rem);
+      }
+
+      .close-body {
+        font-size: 0.95rem;
+      }
+
+      .nav {
+        bottom: 20px;
+        padding: 10px 20px;
+        gap: 16px;
+      }
+
+      .nav-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .slide-counter {
+        font-size: 0.75rem;
+        min-width: 50px;
+      }
+
+      .dept-badge {
+        top: 20px;
+        right: 20px;
+        padding: 6px 14px;
+        font-size: 0.65rem;
+      }
+
+      .slide-number {
+        top: 20px;
+        left: 20px;
+        font-size: 0.65rem;
+      }
+
+      .close-tags {
+        gap: 10px;
+      }
+
+      .close-tag {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pain-card {
+        padding: 14px 16px;
+      }
+
+      .pain-card .pain-title {
+        font-size: 0.85rem;
+      }
+
+      .pain-card .pain-desc {
+        font-size: 0.78rem;
+      }
+
+      .agenda-item .sub {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -911,11 +1063,13 @@
 
   function goTo(index, dir = 'next') {
     if (index < 0 || index >= total) return;
-    slides[current].classList.remove('active');
-    slides[current].classList.add(dir === 'next' ? 'prev' : '');
+    const prevSlide = slides[current];
+    const nextSlide = slides[index];
+    prevSlide.classList.remove('active');
+    prevSlide.classList.add(dir === 'next' ? 'prev' : 'next');
     current = index;
-    slides[current].classList.remove('prev');
-    slides[current].classList.add('active');
+    nextSlide.classList.remove('prev');
+    nextSlide.classList.add('active');
     updateUI();
     triggerAnimations(current);
   }
