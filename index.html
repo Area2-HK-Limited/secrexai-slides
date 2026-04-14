@@ -687,6 +687,155 @@
       border: 1px solid rgba(74,222,128,0.25);
       color: var(--green);
     }
+
+    /* ─── Responsive Design ─── */
+    @media (max-width: 1024px) {
+      .slide {
+        padding: 40px 50px;
+      }
+      .slide-title {
+        font-size: clamp(1.6rem, 4vw, 2.8rem) !important;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 16px !important;
+      }
+      .stat-number {
+        font-size: 2.2rem !important;
+      }
+      .role-visual {
+        transform: scale(0.85);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        padding: 24px 20px;
+        padding-bottom: 80px;
+      }
+      .slide-title {
+        font-size: clamp(1.3rem, 5vw, 2rem) !important;
+        margin-bottom: 16px !important;
+      }
+      .section-tag {
+        font-size: 0.7rem !important;
+      }
+      .dept-badge {
+        font-size: 0.65rem !important;
+        padding: 3px 8px !important;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+      }
+      .stat-card {
+        padding: 12px 8px !important;
+      }
+      .stat-number {
+        font-size: 1.8rem !important;
+      }
+      .stat-label {
+        font-size: 0.65rem !important;
+      }
+      .role-visual {
+        transform: scale(0.6);
+      }
+      .role-diagram {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .role-arrow {
+        transform: rotate(90deg);
+      }
+      .agenda-list {
+        gap: 8px;
+      }
+      .agenda-item {
+        padding: 10px 12px !important;
+      }
+      .scenario-card {
+        padding: 12px !important;
+      }
+      .bubble {
+        font-size: 0.8rem !important;
+        padding: 8px 10px !important;
+      }
+      .chat-bubble-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav {
+        padding: 8px 12px;
+        gap: 8px;
+      }
+      .nav button {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      #counter {
+        font-size: 0.75rem;
+      }
+      .pain-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .pain-card {
+        padding: 14px !important;
+      }
+      .pain-icon {
+        font-size: 1.4rem !important;
+      }
+      .close-title {
+        font-size: clamp(1.4rem, 5vw, 2.5rem) !important;
+      }
+      .close-body {
+        font-size: 0.85rem !important;
+      }
+      .close-tags {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .close-tag {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide {
+        padding: 16px 12px;
+        padding-bottom: 70px;
+      }
+      .brand {
+        font-size: clamp(2.5rem, 12vw, 4rem) !important;
+      }
+      .company {
+        font-size: 0.9rem !important;
+      }
+      .subtitle {
+        font-size: 0.75rem !important;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .stat-number {
+        font-size: 1.5rem !important;
+      }
+      .role-visual {
+        transform: scale(0.5);
+      }
+      .bubble {
+        font-size: 0.75rem !important;
+      }
+      .nav button {
+        width: 32px;
+        height: 32px;
+      }
+      #counter {
+        font-size: 0.7rem;
+      }
+    }
   </style>
 </head>
 <body>
