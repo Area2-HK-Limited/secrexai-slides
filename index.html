@@ -8,17 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #080C14;
-      --surface: #0D1521;
-      --surface2: #111D2E;
-      --accent: #25D366;
-      --accent2: #20BD5A;
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a25;
+      --accent: #f5a623;
+      --accent2: #e8791a;
       --accent3: #4fc3f7;
-      --text: #E8EAF0;
-      --text-muted: #8892A4;
-      --border: rgba(37,211,102,0.12);
-      --glow: rgba(37,211,102,0.2);
-      --green: #25D366;
+      --text: #f0f0f5;
+      --text-muted: #8888a0;
+      --border: rgba(245,166,35,0.15);
+      --glow: rgba(245,166,35,0.25);
+      --green: #4ade80;
       --red: #f87171;
     }
 
@@ -46,13 +46,12 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: clamp(32px, 6vw, 60px) clamp(24px, 8vw, 80px);
+      padding: 60px 80px;
       opacity: 0;
       transform: translateX(100%);
       transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
       background: var(--bg);
-      overflow: hidden;
     }
 
     .slide.active {
@@ -68,7 +67,7 @@
 
     /* ─── Slide 1: Cover ─── */
     .slide-cover {
-      background: radial-gradient(ellipse at 30% 40%, #091508 0%, #080C14 60%);
+      background: radial-gradient(ellipse at 30% 40%, #1a1500 0%, #0a0a0f 60%);
       text-align: center;
     }
 
@@ -89,7 +88,7 @@
       font-weight: 900;
       line-height: 1;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff 0%, #25D366 60%, #20BD5A 100%);
+      background: linear-gradient(135deg, #fff 0%, #f5a623 60%, #e8791a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
@@ -142,7 +141,7 @@
 
     /* ─── Slide 2: Agenda ─── */
     .slide-agenda {
-      background: radial-gradient(ellipse at 70% 50%, #091208 0%, #080C14 70%);
+      background: radial-gradient(ellipse at 70% 50%, #0d1117 0%, #0a0a0f 70%);
     }
 
     .slide-number {
@@ -230,7 +229,7 @@
 
     /* ─── Slide 3: Pain Points ─── */
     .slide-pain {
-      background: radial-gradient(ellipse at 20% 60%, #080C0A 0%, #080C14 60%);
+      background: radial-gradient(ellipse at 20% 60%, #120808 0%, #0a0a0f 60%);
     }
 
     .two-col {
@@ -308,7 +307,7 @@
 
     /* ─── Slide 4: Role ─── */
     .slide-role {
-      background: radial-gradient(ellipse at 60% 40%, #080E14 0%, #080C14 65%);
+      background: radial-gradient(ellipse at 60% 40%, #0a1520 0%, #0a0a0f 65%);
     }
 
     .role-visual {
@@ -358,7 +357,7 @@
     }
 
     .role-box.ai {
-      background: linear-gradient(135deg, #091508, #061008);
+      background: linear-gradient(135deg, #2a1800, #1a1000);
       border: 2px solid var(--accent);
       color: var(--accent);
       font-size: 1.1rem;
@@ -395,7 +394,7 @@
 
     /* ─── Slide 5: Stats ─── */
     .slide-stats {
-      background: radial-gradient(ellipse at 50% 30%, #080E0A 0%, #080C14 65%);
+      background: radial-gradient(ellipse at 50% 30%, #0f1a0a 0%, #0a0a0f 65%);
     }
 
     .stats-grid {
@@ -428,7 +427,7 @@
     .stat-number {
       font-size: 3.2rem;
       font-weight: 900;
-      background: linear-gradient(135deg, var(--accent), #1aB355);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1;
@@ -449,7 +448,7 @@
 
     /* ─── Slide 6: CS Scenarios ─── */
     .slide-cs {
-      background: radial-gradient(ellipse at 80% 20%, #080E08 0%, #080C14 65%);
+      background: radial-gradient(ellipse at 80% 20%, #0d1505 0%, #0a0a0f 65%);
     }
 
     .scenario-card {
@@ -537,7 +536,7 @@
 
     /* ─── Slide 7: Closing ─── */
     .slide-close {
-      background: radial-gradient(ellipse at 40% 40%, #091508 0%, #080C14 65%);
+      background: radial-gradient(ellipse at 40% 40%, #1a1200 0%, #0a0a0f 65%);
       text-align: center;
     }
 
@@ -643,7 +642,7 @@
       top: 0;
       left: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), #1aB355);
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
       z-index: 100;
     }
@@ -688,157 +687,6 @@
       border: 1px solid rgba(74,222,128,0.25);
       color: var(--green);
     }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .slide {
-        padding: 32px 20px 100px;
-        justify-content: flex-start;
-        padding-top: 60px;
-      }
-
-      .slide-cover .brand {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-      }
-
-      .slide-title {
-        font-size: clamp(1.6rem, 6vw, 3rem);
-        margin-bottom: 32px;
-      }
-
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .agenda-list {
-        gap: 12px;
-      }
-
-      .agenda-item {
-        padding: 16px 20px;
-        gap: 16px;
-      }
-
-      .agenda-item .num {
-        font-size: 1.1rem;
-        min-width: 28px;
-      }
-
-      .agenda-item .label {
-        font-size: 0.95rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        max-width: 360px;
-      }
-
-      .stat-card {
-        padding: 24px 20px;
-      }
-
-      .stat-number {
-        font-size: 2.4rem;
-      }
-
-      .role-diagram {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .role-arrow {
-        transform: rotate(90deg);
-        padding: 8px 0;
-      }
-
-      .role-box {
-        padding: 20px 28px;
-        font-size: 0.9rem;
-      }
-
-      .scenario-card {
-        padding: 24px 20px;
-      }
-
-      .bubble {
-        font-size: 0.85rem;
-        max-width: 95%;
-      }
-
-      .insight-box {
-        padding: 24px;
-      }
-
-      .insight-box .big-quote {
-        font-size: 1.2rem;
-      }
-
-      .close-title {
-        font-size: clamp(1.8rem, 8vw, 3.5rem);
-      }
-
-      .close-body {
-        font-size: 0.95rem;
-      }
-
-      .nav {
-        bottom: 20px;
-        padding: 10px 20px;
-        gap: 16px;
-      }
-
-      .nav-btn {
-        width: 36px;
-        height: 36px;
-      }
-
-      .slide-counter {
-        font-size: 0.75rem;
-        min-width: 50px;
-      }
-
-      .dept-badge {
-        top: 20px;
-        right: 20px;
-        padding: 6px 14px;
-        font-size: 0.65rem;
-      }
-
-      .slide-number {
-        top: 20px;
-        left: 20px;
-        font-size: 0.65rem;
-      }
-
-      .close-tags {
-        gap: 10px;
-      }
-
-      .close-tag {
-        padding: 8px 16px;
-        font-size: 0.75rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .pain-card {
-        padding: 14px 16px;
-      }
-
-      .pain-card .pain-title {
-        font-size: 0.85rem;
-      }
-
-      .pain-card .pain-desc {
-        font-size: 0.78rem;
-      }
-
-      .agenda-item .sub {
-        display: none;
-      }
-    }
   </style>
 </head>
 <body>
@@ -860,7 +708,7 @@
 
   <!-- SLIDE 2: Agenda -->
   <div class="slide slide-agenda" data-slide="2">
-    <div class="slide-number">02 / 07</div>
+    <div class="slide-number">02 / 16</div>
     <div class="dept-badge cs">Overview</div>
     <div class="section-tag">今日議程</div>
     <div class="slide-title">報告<span class="highlight">結構一覽</span></div>
@@ -898,7 +746,7 @@
 
   <!-- SLIDE 3: Pain Points -->
   <div class="slide slide-pain" data-slide="3">
-    <div class="slide-number">03 / 07</div>
+    <div class="slide-number">03 / 16</div>
     <div class="dept-badge admin">行政 / 會計</div>
     <div class="section-tag">當前痛點</div>
     <div class="slide-title">Invoice Ninja 上線後<br><span class="highlight">仍未解決的問題</span></div>
@@ -937,7 +785,7 @@
 
   <!-- SLIDE 4: Role Diagram -->
   <div class="slide slide-role" data-slide="4">
-    <div class="slide-number">04 / 07</div>
+    <div class="slide-number">04 / 16</div>
     <div class="dept-badge admin">行政 / 會計</div>
     <div class="section-tag">解決方案</div>
     <div class="slide-title">SecrexAI 扮演的<span class="highlight">角色</span></div>
@@ -958,9 +806,15 @@
     </div>
   </div>
 
+<div class="slide slide-cs" data-slide="8" style="background: radial-gradient(ellipse at 30% 40%, #080E08 0%, #080C14 70%);">
+  <div class="slide-number">05 / 08</div>
+<div class="slide slide-cs" data-slide="9" style="background: radial-gradient(ellipse at 70% 60%, #080E08 0%, #080C14 70%);">
+  <div class="slide-number">06 / 08</div>
+<div class="slide slide-role" data-slide="10" style="background: radial-gradient(ellipse at 50% 50%, #080E0A 0%, #080C14 65%);">
+  <div class="slide-number">07 / 08</div>
   <!-- SLIDE 5: Stats -->
   <div class="slide slide-stats" data-slide="5">
-    <div class="slide-number">05 / 07</div>
+    <div class="slide-number">05 / 16</div>
     <div class="dept-badge ops">項目執行</div>
     <div class="section-tag">價值量化</div>
     <div class="slide-title">前線同事使用後<br><span class="highlight">實際節省時間</span></div>
@@ -983,9 +837,15 @@
     </div>
   </div>
 
+<div class="slide slide-cs" data-slide="11" style="background:radial-gradient(ellipse at 80% 20%, #080E08 0%, #080C14 65%);">
+  <div class="slide-number">06 / 09</div>
+<div class="slide slide-role" data-slide="12" style="background:radial-gradient(ellipse at 40% 50%, #080E0A 0%, #080C14 65%);">
+  <div class="slide-number">07 / 09</div>
+<div class="slide slide-stats" data-slide="13" style="background:radial-gradient(ellipse at 50% 30%, #080E0A 0%, #080C14 65%);">
+  <div class="slide-number">08 / 09</div>
   <!-- SLIDE 6: CS Scenario -->
   <div class="slide slide-cs" data-slide="6">
-    <div class="slide-number">06 / 07</div>
+    <div class="slide-number">06 / 16</div>
     <div class="dept-badge cs">客戶服務</div>
     <div class="section-tag">場景示例</div>
     <div class="slide-title">WhatsApp 指令<span class="highlight">實際效果</span></div>
@@ -1013,9 +873,15 @@
     </div>
   </div>
 
+<div class="slide slide-stats" data-slide="14">
+  <div class="slide-number">08 / 10</div>
+<div class="slide slide-cs" data-slide="15">
+  <div class="slide-number">09 / 10</div>
+<div class="slide slide-stats" data-slide="16">
+  <div class="slide-number">10 / 10</div>
   <!-- SLIDE 7: Close -->
   <div class="slide slide-close" data-slide="7">
-    <div class="slide-number">07 / 07</div>
+    <div class="slide-number">07 / 16</div>
     <div class="section-tag" style="opacity:0;animation:fadeUp 0.8s 0.2s forwards">總結</div>
     <div class="close-title">
       SecrexAI 唔係取代同事<br>
@@ -1063,13 +929,11 @@
 
   function goTo(index, dir = 'next') {
     if (index < 0 || index >= total) return;
-    const prevSlide = slides[current];
-    const nextSlide = slides[index];
-    prevSlide.classList.remove('active');
-    prevSlide.classList.add(dir === 'next' ? 'prev' : 'next');
+    slides[current].classList.remove('active');
+    slides[current].classList.add(dir === 'next' ? 'prev' : '');
     current = index;
-    nextSlide.classList.remove('prev');
-    nextSlide.classList.add('active');
+    slides[current].classList.remove('prev');
+    slides[current].classList.add('active');
     updateUI();
     triggerAnimations(current);
   }
