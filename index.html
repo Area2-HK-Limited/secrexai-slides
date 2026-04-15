@@ -65,6 +65,11 @@
       opacity: 0;
     }
 
+    .slide.next {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
     /* ─── Slide 1: Cover ─── */
     .slide-cover {
       background: radial-gradient(ellipse at 30% 40%, #1a1500 0%, #0a0a0f 60%);
@@ -1766,9 +1771,9 @@
   function goTo(index, dir = 'next') {
     if (index < 0 || index >= total) return;
     slides[current].classList.remove('active');
-    slides[current].classList.add(dir === 'next' ? 'prev' : '');
+    slides[current].classList.add(dir === 'next' ? 'prev' : 'next');
     current = index;
-    slides[current].classList.remove('prev');
+    slides[current].classList.remove('prev', 'next');
     slides[current].classList.add('active');
     updateUI();
     triggerAnimations(current);
@@ -1807,7 +1812,7 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1, 'next'); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1, 'prev'); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1, 'prev'); }
   });
 
   // Touch swipe
