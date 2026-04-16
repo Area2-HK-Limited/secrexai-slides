@@ -9,7 +9,8 @@ async function screenshotSlides() {
 
   const filePath = path.resolve(__dirname, 'index.html');
   await page.goto('file://' + filePath);
-  await page.waitForTimeout(2000);
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(1200);
 
   // Count slides
   const slideCount = await page.locator('.slide').count();
@@ -25,27 +26,73 @@ async function screenshotSlides() {
   );
   slides.forEach(s => console.log(`Slide ${s.index}: data-slide=${s.dataSlide}, class=${s.classList}`));
 
-  // Screenshot each slide
   const outDir = path.resolve(__dirname, 'screenshots');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir);
+  for (const entry of fs.readdirSync(outDir)) {
+    if (entry.endsWith('.png') || entry === 'report.json') {
+      fs.rmSync(path.join(outDir, entry), { force: true });
+    }
+  }
+
+  const report = [];
 
   for (let i = 0; i < slideCount; i++) {
     try {
-      // Navigate to slide i using keyboard
-      await page.keyboard.press('ArrowRight');
-      await page.waitForTimeout(800);
+      if (i > 0) {
+        await page.keyboard.press('ArrowRight');
+        await page.waitForTimeout(850);
+      }
 
-      const counter = await page.locator('#counter').textContent();
-      const fileName = `slide_${String(i+1).padStart(2,'0')}_${counter.replace(/\//g,'-').replace(/\s/g,'')}.png`;
+      const counter = (await page.locator('#counter').textContent()).trim();
+      const activeSlide = page.locator('.slide.active');
+      const metrics = await activeSlide.evaluate((slide) => {
+        const rect = slide.getBoundingClientRect();
+        const overflowingY = slide.scrollHeight > slide.clientHeight + 1;
+        const overflowingX = slide.scrollWidth > slide.clientWidth + 1;
+        const textLength = (slide.innerText || '').trim().length;
+        const descendants = Array.from(slide.querySelectorAll('*'));
+        const outOfBounds = descendants.filter((node) => {
+          const bounds = node.getBoundingClientRect();
+          return bounds.bottom > rect.bottom + 1 || bounds.right > rect.right + 1;
+        }).length;
+
+        return {
+          dataSlide: slide.getAttribute('data-slide'),
+          className: slide.className,
+          clientHeight: slide.clientHeight,
+          scrollHeight: slide.scrollHeight,
+          clientWidth: slide.clientWidth,
+          scrollWidth: slide.scrollWidth,
+          overflowingY,
+          overflowingX,
+          textLength,
+          outOfBounds,
+        };
+      });
+
+      const fileName = `slide_${String(i + 1).padStart(2, '0')}_${counter.replace(/\//g, '-').replace(/\s/g, '')}.png`;
       await page.screenshot({
         path: path.join(outDir, fileName),
         clip: { x: 0, y: 0, width: 1280, height: 768 }
       });
+
+      report.push({
+        fileName,
+        counter,
+        ...metrics,
+      });
+
       console.log(`Screenshot: ${fileName}`);
+      if (metrics.overflowingY || metrics.overflowingX || metrics.textLength === 0 || metrics.outOfBounds > 0) {
+        console.log(`  Flagged: overflowY=${metrics.overflowingY} overflowX=${metrics.overflowingX} textLength=${metrics.textLength} outOfBounds=${metrics.outOfBounds}`);
+      }
     } catch(e) {
       console.error(`Error on slide ${i}: ${e.message}`);
     }
   }
+
+  fs.writeFileSync(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2));
+  console.log(`Report written: ${path.join(outDir, 'report.json')}`);
 
   await browser.close();
 }

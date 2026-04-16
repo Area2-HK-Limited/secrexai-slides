@@ -110,6 +110,7 @@
       line-height: 1;
       margin-bottom: 16px;
       background: linear-gradient(135deg, #fff 0%, #f5a623 60%, #e8791a 100%);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
@@ -459,6 +460,7 @@
       font-size: 3.2rem;
       font-weight: 900;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1;
@@ -1232,7 +1234,7 @@
 <div class="num">02</div>
 <div>
 <div class="label">客戶服務 / 業務發展團隊</div>
-<div class="sub">即時進度回覆 · 通知草稿 · notes 摘要</div>
+<div class="sub">客戶資料 · 相似報價 · PDF 覆核發送</div>
 </div>
 </div>
 <div class="agenda-item" data-delay="2">
@@ -1256,15 +1258,24 @@
 <div class="dept-badge admin">行政 / 會計</div>
 <div class="section-tag">當前痛點</div>
 <div class="slide-title">Invoice Ninja 上線後<br/><span class="highlight">仍未解決的問題</span></div>
-<div class="two-col">
+<div class="two-col" style="gap:40px;align-items:center;">
 <div class="pain-grid">
-<div class="role-box invoice" data-delay="6">Invoice Ninja<br/><span style="font-size:0.75rem;color:#8888a0">Project / Task / Expense</span></div>
-<div class="pain-title">發票建立了，但客戶遲遲未付</div>
-<div class="pain-desc">無人主動追，應收帳款愈積愈多</div>
-  OpenClaw 提供 WhatsApp 入口，SecrexAI 代你查閱 Invoice Ninja 的 project、task、expense 同 notes，<br/>
-<strong>先整摘要、再交俾同事決定下一步</strong>。<br/>
-<span style="font-size:0.75rem;color:var(--text-muted);opacity:0.8;">💡 需要寫回資料或發提醒時，再透過 Invoice Ninja API / workflow 處理</span>
-<div class="pain-desc">要登入系統、被迫自行查找數字，費時</div>
+<div class="pain-card" data-delay="0">
+<div class="pain-title">資料入咗系統，但臨時查數仍然慢</div>
+<div class="pain-desc">project、task、expense、due date 分散，老闆或協調一問就要逐頁打開搵。</div>
+</div>
+<div class="pain-card" data-delay="1">
+<div class="pain-title">逾期 invoice 無集中優先次序</div>
+<div class="pain-desc">應收跟進仍靠人手記住邊張最急，容易遺漏或先後次序唔一致。</div>
+</div>
+<div class="pain-card" data-delay="2">
+<div class="pain-title">月結前想先講重點，仍要自己拼資料</div>
+<div class="pain-desc">第一期未必要全自動，但至少要有一個可靠 read-only 摘要入口。</div>
+</div>
+</div>
+<div class="insight-box">
+<div class="big-quote">SecrexAI 接入 WhatsApp 後，可先把 <span class="orange">project / task / expense / notes</span> 整理成一段可讀摘要。</div>
+<div class="attribution">第一期建議只做查詢與草稿整理。要寫回 Invoice Ninja 或發提醒，再透過 API / workflow 接駁，避免一開始承諾過度自動化。</div>
 </div>
 </div>
 </div>
@@ -1273,8 +1284,8 @@
 <div class="dept-badge admin">行政 / 會計</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 A · 場景 B</div>
 <div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">行政日常即時<span class="highlight"> WhatsApp 查數</span></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;max-width:960px;">
-<div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.45s forwards">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%;max-width:1040px;align-items:start;">
+<div class="scenario-card" style="padding:24px 28px;opacity:0;animation:fadeUp 0.7s 0.45s forwards">
 <div class="scenario-header">
 <div class="scenario-icon">📋</div>
 <div>
@@ -1283,35 +1294,22 @@
 </div>
 </div>
 <div class="chat-bubble-row">
-<div class="bubble user">
-    「恒基 A盤而家仲有邊啲 task 未完成，同埋已記錄咗幾多 expense？」
-  </div>
+<div class="bubble user">「恒基 A 盤仲有邊啲 task 未完成？」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 回覆</div>
-    📋 <strong>恒基 A盤（#HK-2024-0038）</strong><br/>
-    Invoice Ninja project 截至今天 10:30<br/><br/>
-    Budgeted hours：120 hrs ｜ 已記錄：96 hrs<br/>
-    Linked tasks：8 項（完成 5 / 進行中 2 / Ready to do 1）<br/>
-    Linked expenses：6 筆，共 <strong>$61,200</strong><br/>
-    Due date：4月22日<br/><br/>
-<strong>今日最值得跟進：</strong><br/>
-    · 安裝排期仍待客戶確認<br/>
-    · 兩筆 expense 仍未加入 invoice<br/>
-    · 尾款 invoice 將於 4月20日到期
-  </div>
-<div class="bubble user" style="font-size:0.82rem;max-width:90%;">
-    「列埋邊兩筆 expense 仲未 bill 到客戶」
-  </div>
-<div class="bubble ai" style="font-size:0.85rem;">
-<div class="bubble-label">SecrexAI 回覆</div>
-    🧾 <strong>未入 invoice expenses</strong><br/>
-    1. 場地運輸：$4,800（4月12日）<br/>
-    2. 臨時印刷補單：$2,400（4月13日）<br/><br/>
-    需要的話，我可以再整理成一段內部跟進訊息。
-  </div>
+📋 <strong>恒基 A 盤（#HK-2024-0038）</strong><br/>
+Tasks：完成 5 / 8 ｜ 進行中 2 ｜ 待確認 1<br/>
+Unbilled expenses：2 筆，共 $7,200<br/>
+下一個 due date：4月22日
 </div>
 </div>
-<div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.55s forwards">
+<div class="pill-row">
+<div class="pill green">📋 task 狀態</div>
+<div class="pill blue">🧾 expense 快照</div>
+<div class="pill amber">📅 due date</div>
+</div>
+</div>
+<div class="scenario-card" style="padding:24px 28px;opacity:0;animation:fadeUp 0.7s 0.55s forwards">
 <div class="scenario-header">
 <div class="scenario-icon">💰</div>
 <div>
@@ -1320,124 +1318,129 @@
 </div>
 </div>
 <div class="chat-bubble-row">
-<div class="bubble user">
-    「恒基 A盤宜家累計用了幾多成本？」
-  </div>
+<div class="bubble user">「恒基 A 盤成本用到邊？」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 回覆</div>
-    📊 <strong>恒基 A盤（#HK-2024-0038）</strong><br/>
-    狀態：進行中<br/><br/>
-    已記錄 expenses：$61,200<br/>
-    預算：$74,000 ｜ 支出進度：83%<br/><br/>
-    支出明細：<br/>
-    · Crew費用：$42,000<br/>
-    · 印刷品：$12,000<br/>
-    · 雜費：$7,200<br/><br/>
-    🔔 按目前速度，預計完成時約 $57,000
-  </div>
-<div class="bubble user" style="font-size:0.82rem;max-width:90%;">
-    「crew費用係咪用得太快？」
-  </div>
-<div class="bubble ai" style="font-size:0.85rem;">
-<div class="bubble-label">SecrexAI 回覆</div>
-    ⚠️ <strong>Crew費用分析</strong><br/>
-    預算：$48,000 ｜ 實際：$42,000（87.5%）<br/>
-    項目進度：第 4 日 / 共 7 日<br/><br/>
-    按目前速度，預計完成時約 $57,000，<br/>
-    超出預算 <strong style="color:#f87171">+$9,000（+19%）</strong><br/><br/>
-    🔔 建議盡早與 crew 負責人確認費用
-  </div>
+💰 <strong>成本快照</strong><br/>
+已記錄 expenses：$61,200<br/>
+預算：$74,000 ｜ 支出進度：83%<br/>
+Crew：$42,000 ｜ 印刷：$12,000 ｜ 雜費：$7,200
 </div>
 </div>
-<div style="margin-top:14px;padding:10px 16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:8px;font-size:0.75rem;color:#a5b4fc;">
-        <span style="font-weight:700;color:#818cf8;">&#x1F4A1; Invoice Ninja 實現：</span>
-        在 Invoice Ninja 為每個推廣項目建立 <strong>Project</strong>，將各項工作設為 <strong>Task</strong> 並記錄完成狀態；活動支出記錄為 <strong>Expense</strong>。SecrexAI 透過 API 讀取後整合回覆。
-      </div>
+<div class="pill-row">
+<div class="pill green">📊 budget 對比</div>
+<div class="pill blue">🗂 category 拆分</div>
+<div class="pill amber">⚠️ 超支早知道</div>
+</div>
+</div>
+</div>
+<div style="margin-top:14px;padding:10px 16px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:8px;font-size:0.75rem;color:#a5b4fc;opacity:0;animation:fadeUp 0.7s 0.65s forwards;">
+<span style="font-weight:700;color:#818cf8;">💡 Invoice Ninja 實現：</span>
+Project、Task、Expense、Due date 同 notes 由 Invoice Ninja 提供資料，SecrexAI 只負責整理成即時摘要。
+</div>
 </div>
 <div class="slide slide-cs" data-slide="5" style="background: radial-gradient(ellipse at 30% 40%, #080E08 0%, #080C14 70%);">
 <div class="slide-number">05 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
-<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 B</div>
-<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">逾期發票主動<span class="highlight">跟進</span></div>
-<div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.6s forwards">
+<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 C</div>
+<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">逾期發票快速<span class="highlight">總覽</span></div>
+<div style="display:grid;grid-template-columns:1.08fr 0.92fr;gap:24px;width:100%;max-width:1040px;align-items:start;">
+<div class="scenario-card" style="padding:28px 32px;opacity:0;animation:fadeUp 0.7s 0.45s forwards">
 <div class="scenario-header">
-<div class="scenario-icon">📋</div>
+<div class="scenario-icon">🔴</div>
 <div>
-<div class="scenario-label">場景 B</div>
-<div class="scenario-title">逾期發票主動跟進</div>
+<div class="scenario-label">場景 C</div>
+<div class="scenario-title">今日先追邊幾張 overdue invoice</div>
 </div>
 </div>
 <div class="chat-bubble-row">
-<div class="bubble user">
-    「提醒我今日有邊間invoice逾期超過30日？」
-  </div>
+<div class="bubble user">「今日邊啲 invoice 逾期超過 30 日？」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 回覆</div>
-    🔴 <strong>逾期 30+ 日發票（共 3 張）</strong><br/><br/>
-    <strong>1. Mikiki 商場推廣</strong> — $18,500<br/>
-    逾期 <span style="color:#f87171">42 日</span>｜3月8日曾聯絡<br/><br/>
-    <strong>2. Nike 5km 活動</strong> — $32,000<br/>
-    逾期 <span style="color:#f87171">38 日</span>｜尚未回覆<br/><br/>
-    <strong>3. HKTVmall 街頭路演</strong> — $9,800<br/>
-    逾期 <span style="color:#f87171">31 日</span>｜已確認週五過數<br/><br/>
-    📌 逾期總額：<strong>$60,300</strong><br/><br/>
-    需要我幫你整理今日 reminder email draft 同待跟進清單？
-  </div>
+🔴 <strong>逾期 30+ 日：3 張</strong><br/>
+Mikiki：$18,500 ｜ 42 日<br/>
+Nike 5km：$32,000 ｜ 38 日<br/>
+HKTVmall：$9,800 ｜ 31 日<br/><br/>
+逾期總額：<strong>$60,300</strong>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;opacity:0;animation:fadeUp 0.7s 0.55s forwards;">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f87171;margin-bottom:8px;">今日優先次序</div>
+<div style="font-size:0.86rem;color:var(--text);line-height:1.65;">1. 先跟進尚未回覆個案<br/>2. 再追已 promised 但未過數個案<br/>3. 最後更新 internal notes</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">可整理輸出</div>
+<div style="font-size:0.84rem;color:var(--text-muted);line-height:1.65;">Reminder email draft<br/>內部跟進清單<br/>老闆 quick summary</div>
+</div>
+<div class="pill-row" style="margin-top:0;">
+<div class="pill green">🔎 past due list</div>
+<div class="pill blue">📝 notes 補充</div>
+<div class="pill amber">✉️ reminder draft</div>
+</div>
 </div>
 </div>
 </div>
 <div class="slide slide-cs" data-slide="6" style="background: radial-gradient(ellipse at 30% 40%, #080E08 0%, #080C14 70%);">
 <div class="slide-number">06 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
-<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 B</div>
-<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">逾期發票主動<span class="highlight">跟進</span></div>
-<div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.6s forwards">
+<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 D</div>
+<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">Reminder 草稿先出<span class="highlight">再由同事覆核</span></div>
+<div style="display:grid;grid-template-columns:1fr 0.95fr;gap:24px;width:100%;max-width:1040px;align-items:start;">
+<div class="scenario-card" style="padding:26px 30px;opacity:0;animation:fadeUp 0.7s 0.45s forwards">
 <div class="scenario-header">
-<div class="scenario-icon">📋</div>
+<div class="scenario-icon">🔔</div>
 <div>
-<div class="scenario-label">場景 B</div>
-<div class="scenario-title">逾期發票主動跟進</div>
+<div class="scenario-label">場景 D</div>
+<div class="scenario-title">逾期客戶提醒草稿</div>
 </div>
 </div>
-<div class="chat-bubble-row">
-<div class="bubble user">
-          「提醒我今日有邊間invoice逾期超過30日？」
-        </div>
+<div class="mini-chat">
 <div class="bubble ai">
-<div class="bubble-label">SecrexAI 回覆</div>
-          🔴 <strong>逾期 30+ 日發票（共 3 張）</strong><br/><br/>
-<strong>1. Mikiki 商場推廣</strong> — $18,500<br/>
-          逾期 <span style="color:#f87171">42 日</span>｜3月8日曾聯絡<br/><br/>
-<strong>2. Nike 5km 活動</strong> — $32,000<br/>
-          逾期 <span style="color:#f87171">38 日</span>｜尚未回覆<br/><br/>
-<strong>3. HKTVmall 街頭路演</strong> — $9,800<br/>
-          逾期 <span style="color:#f87171">31 日</span>｜已確認週五過數<br/><br/>
-          📌 逾期總額：<strong>$60,300</strong><br/><br/>
-          需要我幫你整理今日 reminder email draft 同待跟進清單？
-        </div>
+<div class="bubble-label">SecrexAI 生成草稿</div>
+【付款提醒】Nike 5km 活動<br/><br/>
+發票 INV-0418 金額 $32,000，已逾期 38 日。<br/>
+如付款已安排，煩請回覆預計過數日期；如需副本，我們可即時補發。<br/><br/>
+謝謝。
 </div>
-</div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;opacity:0;animation:fadeUp 0.7s 0.55s forwards;">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">草稿來源</div>
+<div style="font-size:0.84rem;color:var(--text-muted);line-height:1.65;">Invoice Ninja 的 invoice status、due date、client 名稱、最近 notes。</div>
+</div>
+<div style="background:rgba(37,211,102,0.07);border:1px solid rgba(37,211,102,0.25);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">覆核位</div>
+<div style="font-size:0.84rem;color:var(--text);line-height:1.65;">口氣是否合適、金額是否正確、需唔需要改成 email / WhatsApp 版本。</div>
+</div>
+<div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent3);margin-bottom:8px;">自動化節奏</div>
+<div style="font-size:0.84rem;color:var(--text-muted);line-height:1.65;">先由同事按一按送出，穩定後先再考慮 workflow 自動提醒。</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide slide-cs" data-slide="7" style="background: radial-gradient(ellipse at 70% 60%, #080E08 0%, #080C14 70%);">
 <div class="slide-number">07 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
-<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 C</div>
+<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 E</div>
 <div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">月結前快速<span class="highlight">口述摘要</span></div>
 <div style="display:flex;flex-direction:column;gap:18px;width:100%;max-width:960px;">
 <div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.45s forwards">
 <div class="scenario-header">
 <div class="scenario-icon">📅</div>
 <div>
-<div class="scenario-label">場景 C</div>
+<div class="scenario-label">場景 E</div>
 <div class="scenario-title">月結前先口述一輪重點</div>
 </div>
 </div>
 <div class="chat-bubble-row">
-<div class="bubble user">
-          「今個月至依家，所有項目收支 summary」
-        </div>
+<div class="bubble user">「今個月至依家，所有項目收支 summary」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 回覆</div>
-          📅 <strong>2026年4月（截至14日）</strong><br/><br/>
+📅 <strong>2026 年 4 月（截至 14 日）</strong><br/><br/>
 <table style="width:100%;font-size:0.82rem;border-collapse:collapse;">
 <tr style="color:var(--text-muted);">
 <td style="padding:2px 0;">Mikiki 推廣</td>
@@ -1460,60 +1463,58 @@
 </table>
 <br/>
 <div style="border-top:1px solid var(--border);padding-top:8px;font-size:0.82rem;">
-<strong>本月總計：</strong>已開 invoice <span style="color:#4fc3f7;">$238,000</span> ｜
-            已記錄 expenses <span style="color:#f87171;">$178,500</span><br/>
-            Past due invoices：<strong style="color:#f87171;">$60,300</strong>（3 張）<br/>
-            開口就可以先過一次重點，再決定要睇邊個項目。
-          </div>
+<strong>本月總計：</strong>已開 invoice <span style="color:#4fc3f7;">$238,000</span> ｜ 已記錄 expenses <span style="color:#f87171;">$178,500</span><br/>
+Past due invoices：<strong style="color:#f87171;">$60,300</strong>（3 張）
+</div>
 </div>
 </div>
 </div>
 <div style="width:100%;max-width:960px;background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.2);border-radius:14px;padding:16px 20px;opacity:0;animation:fadeUp 0.7s 0.6s forwards;font-size:0.82rem;color:var(--text-muted);line-height:1.6;">
-        呢頁適合用作月結前 quick recap，資料來源可以由 Invoice Ninja 的 projects、tasks、expenses、past-due invoices 同 reports 組合而成。
-      </div>
+呢頁適合做月結前 quick recap，資料來源可以由 Invoice Ninja 的 projects、tasks、expenses、past-due invoices 同 reports 組合而成。
 </div>
-</div><div class="slide slide-cs" data-slide="8" style="background: radial-gradient(ellipse at 70% 60%, #080E08 0%, #080C14 70%);">
+</div>
+</div>
+<div class="slide slide-cs" data-slide="8" style="background: radial-gradient(ellipse at 70% 60%, #080E08 0%, #080C14 70%);">
 <div class="slide-number">08 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
-<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 D</div>
+<div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景 F</div>
 <div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">老闆突擊查數<span class="highlight">即場回覆</span></div>
-<div class="scenario-card" style="opacity:0;animation:fadeUp 0.7s 0.6s forwards">
+<div style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:24px;width:100%;max-width:1040px;align-items:start;">
+<div class="scenario-card" style="padding:26px 30px;opacity:0;animation:fadeUp 0.7s 0.45s forwards">
 <div class="scenario-header">
 <div class="scenario-icon">👔</div>
 <div>
-<div class="scenario-label">場景 D</div>
-<div class="scenario-title">老闆突擊查數——即場回覆</div>
+<div class="scenario-label">場景 F</div>
+<div class="scenario-title">老闆問一條，先交一段 summary</div>
 </div>
 </div>
 <div class="chat-bubble-row">
-<div class="bubble user">
-          「老細問紧太古城 ALL DAY 項目進展」
-        </div>
+<div class="bubble user">「太古城 ALL DAY 而家進展點？」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 回覆</div>
-          📋 <strong>太古城 ALL DAY 推廣（#TC-2024-0055）</strong><br/>
-          Tasks：完成 5 / 進行中 3<br/>
-          已記錄工時：58 / 90 hrs<br/>
-          已連結 expenses：$28,400<br/>
-          最近 invoice：INV-0421 $15,000（已付款）<br/>
-          下個到期日：4月20日<br/><br/>
-          如要，我可以再整理成一段俾老細直接轉發嘅 summary。
+📋 <strong>太古城 ALL DAY 推廣（#TC-2024-0055）</strong><br/>
+Tasks：完成 5 / 進行中 3<br/>
+已記錄工時：58 / 90 hrs<br/>
+已連結 expenses：$28,400<br/>
+下個 due date：4月20日
 </div>
-<div class="bubble user" style="font-size:0.82rem;max-width:90%;">
-          「幫我整理埋其他項目整體現況」
-        </div>
-<div class="bubble ai" style="font-size:0.82rem;">
-<div class="bubble-label">SecrexAI 回覆</div>
-          📊 <strong>全公司活躍項目概覽</strong><br/><br/>
-          進行中：5 個 ｜ 本週到期：2 個 ｜ past due invoices：3 張<br/>
-          本月已開 invoice：$238,000 ｜ 已記錄 expenses：$178,500<br/><br/>
-          🔴 <strong>需優先跟進：</strong><br/>
-          · Nike 5km 活動：本週尚有 task 未清<br/>
-          · Mikiki 推廣：invoice 已逾期 42 日<br/><br/>
-          隨時可以再拆開逐個 project 睇。
-        </div>
 </div>
-</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;opacity:0;animation:fadeUp 0.7s 0.55s forwards;">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">管理層最想即時知道</div>
+<div style="font-size:0.84rem;color:var(--text);line-height:1.65;">進行中項目：5 個<br/>本週到期：2 個<br/>Past due invoices：3 張</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.76rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#f87171;margin-bottom:8px;">需優先跟進</div>
+<div style="font-size:0.84rem;color:var(--text-muted);line-height:1.65;">Nike 5km：本週尚有 task 未清<br/>Mikiki：invoice 已逾期 42 日</div>
+</div>
+<div style="background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.25);border-radius:16px;padding:18px 20px;">
+<div style="font-size:0.84rem;color:var(--text);line-height:1.65;">如要進一步，SecrexAI 可以再整理成一段俾老闆直接轉發嘅 quick summary。</div>
+</div>
+</div>
+</div>
+</div>
 <div class="slide slide-role" data-slide="9" style="background: radial-gradient(ellipse at 50% 50%, #080E0A 0%, #080C14 65%);">
 <div class="slide-number">09 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
@@ -1537,7 +1538,7 @@
 </div>
 </div>
 </div>
-<div class="slide slide-role" data-slide="10"  style="background: radial-gradient(ellipse at 50% 50%, #080E0A 0%, #080C14 65%);">
+<div class="slide slide-role" data-slide="10" style="background: radial-gradient(ellipse at 50% 50%, #080E0A 0%, #080C14 65%);">
 <div class="slide-number">10 / 24</div>
 <div class="dept-badge admin">行政 / 會計</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">導入前提</div>
@@ -1550,13 +1551,13 @@
 </div>
 <div class="stat-card" data-delay="1" style="padding:32px 24px;">
 <div style="font-size:2.8rem;margin-bottom:12px;">📝</div>
-<div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Notes / 到期日要有人維護</div>
-<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">public/private notes、invoice due date 越齊，回覆就越實淨</div>
+<div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Client / Quote template 要有人維護</div>
+<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">client contact、billing info、quote template 越齊，AI 草稿就越可用</div>
 </div>
 <div class="stat-card" data-delay="2" style="padding:32px 24px;">
 <div style="font-size:2.8rem;margin-bottom:12px;">✅</div>
-<div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">提醒先由草稿 + 覆核開始</div>
-<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">第一期先整理 draft，確認穩定後先再決定要唔要進一步自動化</div>
+<div style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;">PDF / 發送先由覆核開始</div>
+<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">第一期先出 PDF 俾你檢查，確認穩定後先再安排 send 流程</div>
 </div>
 </div>
 </div>
@@ -1567,19 +1568,19 @@
 <div class="slide-title">客戶服務最先見效嘅<br/><span class="highlight">三件事</span></div>
 <div class="stats-grid">
 <div class="stat-card" data-delay="0">
-<div class="stat-number">進度</div>
-<div class="stat-label">客戶一問就拉最新 task / due date</div>
-<div class="stat-sub">↑ 先答到重點，再決定要唔要追問內部</div>
+<div class="stat-number">客戶</div>
+<div class="stat-label">client contact / 地址 / 條款一問即有</div>
+<div class="stat-sub">↑ 對外答客前先核實基本資料</div>
 </div>
 <div class="stat-card" data-delay="1">
-<div class="stat-number">應收</div>
-<div class="stat-label">invoice 狀態、尾款到期日一齊睇</div>
-<div class="stat-sub">↑ 對外回覆唔使再打開幾個畫面交叉對</div>
+<div class="stat-number">報價</div>
+<div class="stat-label">舊有相似 quote 可先抽 line items 做草稿</div>
+<div class="stat-sub">↑ 減少由零開始重打報價</div>
 </div>
 <div class="stat-card" data-delay="2">
-<div class="stat-number">草稿</div>
-<div class="stat-label">notes / status 整理成客戶可讀訊息</div>
-<div class="stat-sub">↑ 先出 draft，再由 CS 覆核後發送</div>
+<div class="stat-number">PDF</div>
+<div class="stat-label">quote PDF 先覆核，確認後再安排寄出</div>
+<div class="stat-sub">↑ Send 前先睇版面同收件名單</div>
 </div>
 </div>
 </div>
@@ -1587,102 +1588,94 @@
 <div class="slide-number">12 / 24</div>
 <div class="dept-badge cs">客戶服務</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景實錄</div>
-<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">
-  WhatsApp × SecrexAI<br/><span class="highlight">三個真實場景</span>
-</div>
-<div style="width:100%;max-width:960px;display:flex;flex-direction:column;gap:16px;">
-<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 18px;opacity:0;animation:fadeUp 0.7s 0.4s forwards;">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a2000,#0f1500);border:1px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📊</div>
+<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">WhatsApp × SecrexAI<br/><span class="highlight">兩個常見客戶 / 報價查詢</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:1040px;align-items:start;">
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;opacity:0;animation:fadeUp 0.7s 0.45s forwards;">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a2000,#0f1500);border:1px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">👤</div>
 <div>
 <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);">場景 A</div>
-<div style="font-size:1.05rem;font-weight:700;color:var(--text);">恒基 A 盤 · 客戶主動查詢進度</div>
+<div style="font-size:1.05rem;font-weight:700;color:var(--text);">客戶資料快速查詢</div>
 </div>
 </div>
 <div class="mini-chat">
-<div class="bubble user">🔵 客戶：恒基 A 盤今日狀況 summary</div>
+<div class="bubble user">CS：幫我睇吓 ABC Retail 聯絡人、地址同付款條款</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 即時回覆</div>
-      📊 <strong>恒基 A 盤 — 最新 project summary</strong><br/>
-      更新時間：今天 10:30<br/><br/>
-      Tasks：已完成 5 / 8 ｜ 進行中 2 ｜ 待確認 1<br/>
-      下一個 milestone：印刷完成後安排安裝（目標 4月16日）<br/>
-      Outstanding invoice：$28,000（4月20日到期）<br/>
-      Project notes：客戶已確認主視覺，等待最終安裝時間
-      </div>
+Client：ABC Retail Ltd.<br/>
+主要聯絡人：陳小姐 ｜ 6123 4567<br/>
+Email：iris@abcretail.hk<br/>
+Billing address：九龍灣宏開道 8 號 12/F<br/>
+Payment terms：Net 30
 </div>
 </div>
-<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 18px;opacity:0;animation:fadeUp 0.7s 0.55s forwards;">
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0f1620,#071018);border:1px solid rgba(79,195,247,0.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🗂️</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;opacity:0;animation:fadeUp 0.7s 0.55s forwards;">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0f1620,#071018);border:1px solid rgba(79,195,247,0.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🧾</div>
 <div>
 <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent3);">場景 B</div>
-<div style="font-size:1.05rem;font-weight:700;color:var(--text);">項目 notes / 文件快速摘要</div>
+<div style="font-size:1.05rem;font-weight:700;color:var(--text);">相似報價單快速參考</div>
 </div>
 </div>
 <div class="mini-chat">
-<div class="bubble user">🔵 CS 同事：幫我整理永明傢俬項目最新 notes 同客戶上次關注點</div>
+<div class="bubble user">BD：搵返最近類似商場路演報價單</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 即時回覆</div>
-      🗂️ <strong>永明傢俬項目摘要</strong><br/><br/>
-      Public notes：安裝後局部需補件<br/>
-      Private notes：需確認損耗責任同補印安排<br/>
-      Documents：報價 v2、安裝相片 3 張<br/>
-      Next follow-up：4月16日前覆客戶補件安排
-      </div>
+可參考：太古城 ALL DAY 推廣 Quote-0182<br/>
+場地佈置：$12,000<br/>
+Promoter team：$18,000<br/>
+印刷物料：$6,800<br/>
+總額：$36,800，可作新客草稿基礎
 </div>
 </div>
 </div>
-</div><div class="slide slide-cs" data-slide="13"  style="background:radial-gradient(ellipse at 80% 20%, #080E08 0%, #080C14 65%);">
+</div>
+<div style="width:100%;max-width:1040px;margin-top:14px;background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.25);border-radius:14px;padding:14px 18px;opacity:0;animation:fadeUp 0.7s 0.65s forwards;font-size:0.8rem;color:var(--text-muted);line-height:1.6;">
+以上兩個查詢都係用 Invoice Ninja 的 client records、quotes 同 line items 先整理成可讀內容。
+</div>
+</div>
+</div>
+<div class="slide slide-cs" data-slide="13" style="background:radial-gradient(ellipse at 80% 20%, #080E08 0%, #080C14 65%);">
 <div class="slide-number">13 / 24</div>
 <div class="dept-badge cs">客戶服務</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景實錄</div>
-<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">
-  主動通知草稿<br/><span class="highlight">先整理再確認</span>
-</div>
-<div style="width:100%;max-width:960px;display:flex;flex-direction:column;gap:28px;">
-<div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px 24px;opacity:0;animation:fadeUp 0.7s 0.7s forwards;">
-<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
-<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#0a1a14,#050f0a);border:1px solid rgba(37,211,102,0.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🔔</div>
+<div class="slide-title" style="opacity:0;animation:fadeUp 0.7s 0.35s forwards">相似報價起草 +<br/><span class="highlight">PDF 覆核再發送</span></div>
+<div style="display:grid;grid-template-columns:1fr 0.9fr;gap:20px;width:100%;max-width:1000px;align-items:start;">
+<div class="scenario-card" style="padding:24px 28px;opacity:0;animation:fadeUp 0.7s 0.5s forwards;">
+<div class="scenario-header">
+<div class="scenario-icon">📄</div>
 <div>
-<div style="font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);">場景 C</div>
-<div style="font-size:1.05rem;font-weight:700;color:var(--text);">根據最新 task / due date 整理通知草稿</div>
+<div class="scenario-label">場景 C</div>
+<div class="scenario-title">參考舊 quote 開新 draft quote</div>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
 <div class="mini-chat">
+<div class="bubble user">「用太古城路演個 quote 開一張俾新城市廣場，先出 PDF 俾我睇。」</div>
 <div class="bubble ai">
 <div class="bubble-label">SecrexAI 生成可覆核通知草稿</div>
-            【洗樓王項目更新】恒基A盤<br/><br/>
-      📦 <strong>印刷已完成</strong><br/>
-      下一步：安裝（待確認 4月18日時段）<br/>
-      如時間無誤，我哋會按排期進行。<br/><br/>
-            有任何問題，請回覆此訊息或致電我們 ☎️
-          </div>
-<div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
-<div style="width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--glow);"></div>
-<div style="font-size:0.72rem;color:var(--green);">SecrexAI 整理最新狀態 → CS 覆核 → 再發送</div>
+已參考 Quote-0182 建立新城市廣場 draft quote。<br/>
+Line items 已保留 3 項，client name / billing info 已換成新客戶。<br/>
+PDF preview 已準備好，可先檢查價錢、條款同版面。
 </div>
 </div>
-<div style="display:flex;flex-direction:column;justify-content:center;gap:10px;">
-<div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;">
+</div>
+<div style="display:flex;flex-direction:column;gap:14px;opacity:0;animation:fadeUp 0.7s 0.6s forwards;">
+<div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;">
 <div style="font-size:0.8rem;font-weight:700;color:#f87171;margin-bottom:6px;">⚡ 過往痛點</div>
-<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">task 更新咗，但 notes / due date 分散<br/>結果：CS 每次都要重新執資料寫訊息</div>
+<div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">要翻舊 quote、重打 line items、另存 PDF，再逐個核對收件人，來回好多次。</div>
 </div>
-<div style="background:rgba(37,211,102,0.07);border:1px solid rgba(37,211,102,0.25);border-radius:12px;padding:16px 20px;">
+<div style="background:rgba(37,211,102,0.07);border:1px solid rgba(37,211,102,0.25);border-radius:12px;padding:16px 18px;">
 <div style="font-size:0.8rem;font-weight:700;color:var(--green);margin-bottom:6px;">✓ SecrexAI 做法</div>
-<div style="font-size:0.82rem;color:var(--text);line-height:1.6;">SecrexAI 先讀 task、due date 同 notes，<br/>整理一段對外訊息草稿，CS 覆核後再發送，<strong style="color:var(--green);">減少重寫時間</strong></div>
+<div style="font-size:0.82rem;color:var(--text);line-height:1.6;">先搵相似 quote 建草稿，再出 PDF 畀你覆核；你回覆 OK 後，先安排 send 俾客戶並同步副本到指定 email。</div>
 </div>
-<div class="pill-row">
-<div class="pill green">📋 task / due date</div>
-<div class="pill blue">📝 notes 摘要</div>
-<div class="pill amber">✅ 先草稿後發送</div>
-</div>
-</div>
+<div class="pill-row" style="margin-top:0;">
+<div class="pill green">🧾 舊 quote 參考</div>
+<div class="pill blue">📄 PDF preview</div>
+<div class="pill amber">✉️ 確認後 send</div>
 </div>
 </div>
-
-</div></div></div>
+</div>
 </div>
 <div class="slide slide-role" data-slide="14" style="background:radial-gradient(ellipse at 40% 50%, #080E0A 0%, #080C14 65%);">
 <div class="slide-number">14 / 24</div>
@@ -1721,7 +1714,7 @@
 <span style="font-size:1.4rem;">🎯</span>
 <div style="text-align:left;">
 <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:2px;">配套要求</div>
-<div style="font-size:0.9rem;color:var(--text);font-weight:600;">保留現有 Invoice Ninja；前提係 projects / tasks / expenses / notes 已有基本維護</div>
+<div style="font-size:0.9rem;color:var(--text);font-weight:600;">保留現有 Invoice Ninja；前提係 clients / quotes / notes 已有基本維護</div>
 </div>
 </div>
 </div>
@@ -1737,28 +1730,28 @@
 <div class="phase-num">Phase 1</div>
 <div class="phase-week">第 1-2 週</div>
 <div class="phase-name">接通資料</div>
-<div class="phase-desc">確認 API token、讀取 project / task / expense 欄位</div>
+<div class="phase-desc">確認 API token、讀取 client、quote、invoice 同 notes 欄位</div>
 <div class="phase-check">🔑 Invoice Ninja API + 權限設定</div>
 </div>
 <div class="phase-item" id="pi1">
 <div class="phase-num">Phase 2</div>
 <div class="phase-week">第 3-4 週</div>
 <div class="phase-name">整理資料</div>
-<div class="phase-desc">整理常用術語、回覆模板、notes 用法同可信欄位</div>
+<div class="phase-desc">整理 client 欄位、quote template、回覆模板同可信欄位</div>
 <div class="phase-check">🧾 先定義邊啲資料可以直接對外講</div>
 </div>
 <div class="phase-item" id="pi2">
 <div class="phase-num">Phase 3</div>
 <div class="phase-week">第 5-6 週</div>
 <div class="phase-name">WhatsApp 試用</div>
-<div class="phase-desc">接 OpenClaw WhatsApp channel，內部試用常見查詢同草稿場景</div>
+<div class="phase-desc">接通 WhatsApp channel，內部試用客戶查詢、報價起草同 PDF 覆核</div>
 <div class="phase-check">💬 先以 read-only 查詢 + 草稿整理起步</div>
 </div>
 <div class="phase-item" id="pi3">
 <div class="phase-num">Phase 4</div>
 <div class="phase-week">第 7-8 週</div>
 <div class="phase-name">覆核優化</div>
-<div class="phase-desc">檢視通知草稿、handover 摘要同 KPI，再決定要唔要擴到自動化</div>
+<div class="phase-desc">檢視報價草稿、PDF 覆核流程同 KPI，再決定要唔要擴到自動化</div>
 <div class="phase-check">🚀 穩定後再擴到更多部門</div>
 </div>
 </div></div>
@@ -1771,20 +1764,20 @@
 </div>
 <div class="summary-pill-row" style="margin-bottom:32px;opacity:0;animation:fadeUp 0.7s 0.45s forwards;">
 <div class="summary-pill" data-delay="0">
-<div class="sp-num">Tasks</div>
-<div class="sp-label">即時拉最新進度與到期日</div>
+<div class="sp-num">Client</div>
+<div class="sp-label">客戶 contact / 條款即時拉出</div>
 </div>
 <div class="summary-pill" data-delay="1">
-<div class="sp-num">Notes</div>
-<div class="sp-label">客戶關注點同一段摘要</div>
+<div class="sp-num">Quote</div>
+<div class="sp-label">相似報價先參考 line items</div>
 </div>
 <div class="summary-pill" data-delay="2">
-<div class="sp-num">Draft</div>
-<div class="sp-label">對外訊息先出草稿再覆核</div>
+<div class="sp-num">PDF</div>
+<div class="sp-label">報價 PDF 先覆核再確認</div>
 </div>
 <div class="summary-pill" data-delay="3">
-<div class="sp-num">WA</div>
-<div class="sp-label">沿用 WhatsApp 對話習慣</div>
+<div class="sp-num">Send</div>
+<div class="sp-label">確認後再安排寄出</div>
 </div>
 </div>
 <div style="margin-top:32px;text-align:center;opacity:0;animation:fadeUp 0.7s 0.75s forwards;">
@@ -1808,19 +1801,19 @@
 <div style="display:flex;flex-direction:column;gap:12px;">
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text-muted);">
 <span style="color:#f87171;margin-top:2px;">•</span>
-          客人問進度 → 要逐個問同事、再自己拼埋一段回覆
+          問客戶資料 → 要翻 client card、舊 email 同 notes 交叉對
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text-muted);">
 <span style="color:#f87171;margin-top:2px;">•</span>
-          invoice、due date、project notes 分散喺唔同畫面
+          要搵相似報價單時，多數靠記憶翻舊單同手動抄 line items
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text-muted);">
 <span style="color:#f87171;margin-top:2px;">•</span>
-          對外訊息要由零開始重寫，口徑容易唔一致
+          新 quote 要重打、另存 PDF，再逐樣檢查條款同版面
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text-muted);">
 <span style="color:#f87171;margin-top:2px;">•</span>
-          新同事唔清楚邊啲資料可以直接對客講
+          發送前仲要再核對客戶收件名單同自己要唔要收副本
         </div>
 </div>
 </div>
@@ -1829,19 +1822,19 @@
 <div style="display:flex;flex-direction:column;gap:12px;">
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text);">
 <span style="color:var(--green);margin-top:2px;">•</span>
-          project、task、invoice、notes 可以喺同一段對話拉出嚟
+          client、contact、payment terms 可以喺同一段對話即時拉出嚟
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text);">
 <span style="color:var(--green);margin-top:2px;">•</span>
-          對外訊息先出草稿，CS 覆核後先發送
+          相似 quote 可先抽 line items 做草稿，唔使次次由零開始
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text);">
 <span style="color:var(--green);margin-top:2px;">•</span>
-          常見客戶關注點可以由 notes / 文件直接整理成摘要
+          先出 quote PDF 俾你檢查，減少寄錯價或條款漏改
         </div>
 <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--text);">
 <span style="color:var(--green);margin-top:2px;">•</span>
-          新同事都可以沿住同一套資料結構去答客戶
+          你回覆 OK 後，再 send 俾客戶並同步副本到指定 email
         </div>
 </div>
 </div>
@@ -1971,7 +1964,7 @@
 </div>
 </div>
 </div>
-</div><div class="slide slide-cs" data-slide="21" style="">
+</div><div class="slide slide-cs" data-slide="21">
 <div class="slide-number">21 / 24</div>
 <div class="dept-badge ops">項目執行 / 前線</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">場景示例</div>
@@ -2052,7 +2045,7 @@
 </div>
 </div>
 </div>
-</div><div class="slide slide-stats" data-slide="23" style="">
+</div><div class="slide slide-stats" data-slide="23">
 <div class="slide-number">23 / 24</div>
 <div class="dept-badge ops">項目執行 / 前線</div>
 <div class="section-tag" style="opacity:0;animation:fadeUp 0.6s 0.2s forwards">第一期建議</div>
@@ -2062,22 +2055,22 @@
 <div style="background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border:1px solid var(--border);border-radius:20px;padding:28px 40px;width:100%;max-width:1100px;opacity:0;animation:fadeUp 0.8s 0.6s forwards;">
 <div style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;">
 <div style="text-align:center;max-width:180px;">
-<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),#1ab355);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">集合</div>
+<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),#1ab355);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">集合</div>
 <div style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">班前查集合時間 / 地點</div>
 </div>
 <div style="width:1px;height:60px;background:var(--border);"></div>
 <div style="text-align:center;max-width:180px;">
-<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),#1ab355);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">任務</div>
+<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--accent),#1ab355);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">任務</div>
 <div style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">查今日 task 狀態</div>
 </div>
 <div style="width:1px;height:60px;background:var(--border);"></div>
 <div style="text-align:center;max-width:180px;">
-<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">匯報</div>
+<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#fbbf24,#f59e0b);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">匯報</div>
 <div style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">口語內容整理成督導草稿</div>
 </div>
 <div style="width:1px;height:60px;background:var(--border);"></div>
 <div style="text-align:center;max-width:180px;">
-<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#4fc3f7,#29b6f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">交接</div>
+<div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#4fc3f7,#29b6f6);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;">交接</div>
 <div style="font-size:0.82rem;color:var(--text-muted);margin-top:4px;">異常情況先整理再轉發</div>
 </div>
 </div>
